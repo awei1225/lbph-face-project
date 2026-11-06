@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>實作專案總覽：人臉辨識 & MediaPipe 手勢虛擬畫板專案報告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen p-6 md:p-12">
+
+    <!-- 頁面標題與學生資訊 -->
+    <header class="max-w-6xl mx-auto mb-10 text-center">
+        <span class="px-3 py-1 text-xs font-semibold bg-emerald-500/10 text-emerald-400 rounded-full border border-emerald-500/20">
+            Python AI 電腦視覺專案總覽報告
+        </span>
+        <h1 class="text-3xl md:text-5xl font-bold mt-3 tracking-tight">人臉辨識與 MediaPipe 手勢互動系統</h1>
+        <p class="text-slate-400 mt-2">Bento Grid 風格專案展示：從 HAAR/LBPH 人臉辨別到 MediaPipe 手勢控制與虛擬畫板實作</p>
+        
+        <!-- 學生姓名與學號 -->
+        <div class="mt-4 inline-flex items-center gap-4 px-6 py-2 bg-slate-900 border border-slate-800 rounded-2xl shadow-lg">
+            <span class="text-sm font-medium text-slate-300">組員：</span>
+            <span class="text-sm font-semibold text-emerald-400">1131410074 黃煒倫</span>
+            <span class="text-slate-600">|</span>
+            <span class="text-sm font-semibold text-emerald-400">1131410002 劉宗杰</span>
+        </div>
+    </header>
+
+    <!-- Bento Grid 主網格容器 -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- 實作一 專案簡介 (大方格) -->
+        <div class="md:col-span-2 bg-slate-900/80 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between shadow-xl backdrop-blur-sm">
+            <div>
+                <div class="flex items-center gap-2 text-emerald-400 font-semibold mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    實作一架構與說明
+                </div>
+                <h2 class="text-2xl font-bold mb-4">結合 Haar Cascade 與 LBPH 人臉辨識</h2>
+                <p class="text-slate-300 leading-relaxed">
+                    本區塊透過 OpenCV 內建的 Haar 級聯分類器進行實時人臉偵測，並結合 Local Binary Patterns Histograms (LBPH) 演算法進行特徵分析與模型訓練，實現多使用者（student01 與 student02）的即時人臉辨識系統。
+                </p>
+            </div>
+            <div class="mt-6 flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm">Python</span>
+                <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm">OpenCV</span>
+                <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm">LBPH 辨識</span>
+                <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm">Haar Cascade</span>
+            </div>
+        </div>
+
+        <!-- 圖 1: 第一步 打開 VS Code & Gemini -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-emerald-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                    第一步：開啟 VS Code & Gemini
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">開啟 Visual Studio Code (開啟資料夾) 與 Gemini 進行協作開發。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="1.png" alt="第一步截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">1.png - 開啟 VS Code 與 Gemini 介面</p>
+            </div>
+        </div>
+
+        <!-- 圖 2: 第二步 問 GEMINI -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-blue-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>
+                    第二步：向 GEMINI 諮詢
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">向 AI 詢問安裝指令、環境建立與專案架構規劃。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="2.png" alt="第二步截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">2.png - Gemini 提供實作步驟與 Bash 指令</p>
+            </div>
+        </div>
+
+        <!-- 圖 3: 第三步 collect_faces.py檔 -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-purple-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+                    第三步：collect_faces.py 檔
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">撰寫人臉樣本收集程式碼，透過 Webcam 即時擷取灰階人臉。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="3.png" alt="第三步截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">3.png - collect_faces.py 原始碼實作</p>
+            </div>
+        </div>
+
+        <!-- 圖 4: 第三步 recognize_lbph.py檔 -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-indigo-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-indigo-400"></span>
+                    第三步：recognize_lbph.py 檔
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">撰寫即時人臉辨識程式碼，載入模型與比對閾值。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="4.png" alt="第四張截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">4.png - recognize_lbph.py 原始碼實作</p>
+            </div>
+        </div>
+
+        <!-- 圖 5: 第三步 train_lbph.py檔 -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-teal-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-teal-400"></span>
+                    第三步：train_lbph.py 檔
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">撰寫模型訓練程式碼，讀取資料夾並建立 LBPH 模型。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="5.png" alt="第五張截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">5.png - train_lbph.py 原始碼實作</p>
+            </div>
+        </div>
+
+        <!-- 圖 6: 第三步 setup_project.py檔 -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-cyan-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+                    第三步：setup_project.py 檔
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">撰寫專案自動化建立資料夾與結構的設定腳本。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="6.png" alt="第六張截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">6.png - setup_project.py 原始碼實作</p>
+            </div>
+        </div>
+
+        <!-- 圖 7: haarcascade_frontalface_alt.xml -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-amber-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                    模型檔案：haarcascade 模型檔
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">配置 Haar Cascade 分類器 XML 檔，解決讀取錯誤。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="7.png" alt="第七張截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">7.png - haarcascade_frontalface_alt.xml 內容</p>
+            </div>
+        </div>
+
+        <!-- 圖 8: 安裝套件 -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-orange-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-orange-400"></span>
+                    套件安裝與除錯記錄
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">重新安裝 opencv-contrib-python 解決擴充模組缺失。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="8.png" alt="第八張截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">8.png - 終端機執行 pip 安裝指令畫面</p>
+            </div>
+        </div>
+
+        <!-- 圖 9: 拍30張 -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-rose-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+                    樣本採集：拍 30 張人臉照片
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">執行 collect_faces.py 成功採集 30 張灰階樣本。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="9.png" alt="第九張截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">9.png - 終端機顯示已儲存 30 張樣本紀錄</p>
+            </div>
+        </div>
+
+        <!-- 圖 10: 人臉辨識1 -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-emerald-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                    成果展示：人臉辨識 1
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">執行 recognize_lbph.py 成功辨識 student01。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="10.png" alt="第十張截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">10.png - student01 即時辨識畫面與數值</p>
+            </div>
+        </div>
+
+        <!-- 圖 11: 人臉辨識2 -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-emerald-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                    成果展示：人臉辨識 2
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">成功切換並辨識第二位同學 student02。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="11.png" alt="第十一張截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">11.png - student02 即時辨識畫面與數值</p>
+            </div>
+        </div>
+
+        <!-- 實作二 專案簡介橫幅 (橫跨 3 欄的大方格) -->
+        <div class="md:col-span-3 bg-gradient-to-r from-emerald-900/50 via-slate-900 to-teal-900/50 border border-emerald-500/30 rounded-3xl p-8 flex flex-col justify-between shadow-2xl backdrop-blur-sm mt-6">
+            <div>
+                <div class="flex items-center gap-2 text-emerald-400 font-semibold mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    實作二進階專案架構
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-3 text-white">實作二：MediaPipe 進階應用（AI 手勢辨識、雙人猜拳與空中虛擬畫板）</h2>
+                <p class="text-slate-300 leading-relaxed max-w-4xl">
+                    本階段導入 Google MediaPipe 關鍵點模型技術，實現 21 個手部關節節點的實時高精準度追蹤。延伸開發出「食指指尖追蹤（綠點標記）」、「空中虛擬畫板繪圖」以及「雙人即時猜拳（剪刀石頭布）勝負判定與計分板系統」。
+                </p>
+            </div>
+            <div class="mt-6 flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg text-sm">MediaPipe Hands</span>
+                <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm">21 Hand Landmarks</span>
+                <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm">Virtual Drawing Board</span>
+                <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm">Dual Player Game</span>
+                <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-sm">OpenCV Canvas</span>
+            </div>
+        </div>
+
+        <!-- 圖 12: 食指指尖追蹤與綠點標記 (12.png) -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-emerald-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                    第十二步：食指指尖追蹤綠點標記
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">使用 MediaPipe 偵測手部 21 關鍵點，特別針對食指指尖（點 ID 8）特別繪製醒目的綠色亮點與外框[cite: 3, 8]。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="12.png" alt="第十二張截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">12.png - 食指指尖綠色亮點與手部骨架追蹤[cite: 8]</p>
+            </div>
+        </div>
+
+        <!-- 圖 13: 虛擬畫板手指畫畫 (13.png) -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-teal-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-teal-400"></span>
+                    第十三步：手指空中虛擬畫板
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">結合 OpenCV 雙層畫布疊加技術，透過單獨舉起食指在鏡頭前揮動即時繪製紅線，左上角同步顯示 STATUS: DRAWING[cite: 7, 8]。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="13.png" alt="第十三張截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">13.png - 空中畫畫實作 (virtual_painter.py)[cite: 8]</p>
+            </div>
+        </div>
+
+        <!-- 圖 14: 剪刀石頭布雙人猜拳辨識 (14.png) -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
+            <div>
+                <h3 class="text-lg font-semibold mb-2 flex items-center gap-2 text-indigo-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-indigo-400"></span>
+                    第十四步：雙人剪刀石頭布即時辨識
+                </h3>
+                <p class="text-slate-400 text-xs mb-3">開啟雙手偵測（num_hands=2），即時判定 Paper vs Scissors，畫面上方搭載自動計分板與冷卻機制[cite: 8]。</p>
+            </div>
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+                <img src="14.png" alt="第十四張截圖" class="w-full h-auto object-cover hover:scale-105 transition duration-300">
+                <p class="text-center text-xs text-slate-400 py-1 bg-slate-900">14.png - 雙人猜拳與 Player 2 Wins 判定結果[cite: 8]</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 頁腳心得區塊 -->
+    <footer class="max-w-6xl mx-auto mt-12 bg-slate-900/80 border border-slate-800 rounded-3xl p-8 shadow-xl backdrop-blur-sm text-center">
+        <h3 class="text-xl font-bold mb-3 text-emerald-400">💡 實作心得與成果總結</h3>
+        <p class="text-slate-300 text-sm max-w-3xl mx-auto leading-relaxed">
+            透過本次完整 14 個步驟的實作，組員 1131410074 黃煒倫與 1131410002 劉宗杰不僅掌握了傳統 OpenCV (Haar + LBPH) 人臉辨識演算法，更進一步整合最新 MediaPipe Tasks API 完成手勢特徵點定位。成功實現食指指尖綠點追蹤、空中虛擬畫板繪畫以及雙人猜拳遊戲與計分介面。從安裝環境、版本除錯到前端 Bento Grid HTML 網頁呈現，完美達成各項電腦視覺專案實作要求！
+        </p>
+        <p class="text-xs text-slate-600 mt-6">© OpenCV & MediaPipe Vision Project Report. Bento Grid Style. All 14 step images integrated.</p>
+    </footer>
+
+</body>
+</html>
